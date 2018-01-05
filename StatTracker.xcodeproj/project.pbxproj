@@ -12,6 +12,11 @@
 		193504662000137000D560AD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193504622000137000D560AD /* Coordinator.swift */; };
 		193504672000137000D560AD /* BubbleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193504632000137000D560AD /* BubbleTransition.swift */; };
 		1935046A200013F000D560AD /* ANColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19350469200013F000D560AD /* ANColors.swift */; };
+		1935046D20001AC500D560AD /* TeamListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935046C20001AC500D560AD /* TeamListScene.swift */; };
+		1935046F20001B3A00D560AD /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935046E20001B3A00D560AD /* BindableType.swift */; };
+		1935047220001B8800D560AD /* UINavigationController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047120001B8800D560AD /* UINavigationController+Rx.swift */; };
+		1935047420001BAE00D560AD /* TeamListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047320001BAE00D560AD /* TeamListVM.swift */; };
+		1935047620001C3900D560AD /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047520001C3900D560AD /* TeamListVC.swift */; };
 		19A1B3081FD3D1A10005A4A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A1B3071FD3D1A10005A4A7 /* AppDelegate.swift */; };
 		19A1B30F1FD3D1A10005A4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A1B30E1FD3D1A10005A4A7 /* Assets.xcassets */; };
 		19A1B3121FD3D1A10005A4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A1B3101FD3D1A10005A4A7 /* LaunchScreen.storyboard */; };
@@ -24,6 +29,11 @@
 		193504622000137000D560AD /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		193504632000137000D560AD /* BubbleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleTransition.swift; sourceTree = "<group>"; };
 		19350469200013F000D560AD /* ANColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANColors.swift; sourceTree = "<group>"; };
+		1935046C20001AC500D560AD /* TeamListScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListScene.swift; sourceTree = "<group>"; };
+		1935046E20001B3A00D560AD /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		1935047120001B8800D560AD /* UINavigationController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rx.swift"; sourceTree = "<group>"; };
+		1935047320001BAE00D560AD /* TeamListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListVM.swift; sourceTree = "<group>"; };
+		1935047520001C3900D560AD /* TeamListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListVC.swift; sourceTree = "<group>"; };
 		19A1B3041FD3D1A10005A4A7 /* StatTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A1B3071FD3D1A10005A4A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A1B30E1FD3D1A10005A4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,9 +87,28 @@
 		19350468200013DE00D560AD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1935046E20001B3A00D560AD /* BindableType.swift */,
 				19350469200013F000D560AD /* ANColors.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		1935046B20001A8900D560AD /* TeamList */ = {
+			isa = PBXGroup;
+			children = (
+				1935046C20001AC500D560AD /* TeamListScene.swift */,
+				1935047320001BAE00D560AD /* TeamListVM.swift */,
+				1935047520001C3900D560AD /* TeamListVC.swift */,
+			);
+			path = TeamList;
+			sourceTree = "<group>";
+		};
+		1935047020001B4F00D560AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1935047120001B8800D560AD /* UINavigationController+Rx.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		19A1B2FB1FD3D1A10005A4A7 = {
@@ -105,7 +134,9 @@
 			children = (
 				19350468200013DE00D560AD /* Common */,
 				19350458200012BA00D560AD /* Coordinator */,
+				1935047020001B4F00D560AD /* Extensions */,
 				19350457200012AE00D560AD /* Networking */,
+				1935046B20001A8900D560AD /* TeamList */,
 				19350459200012C100D560AD /* Startup */,
 				19A1B3131FD3D1A10005A4A7 /* Info.plist */,
 			);
@@ -299,12 +330,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1935046F20001B3A00D560AD /* BindableType.swift in Sources */,
 				193504672000137000D560AD /* BubbleTransition.swift in Sources */,
 				193504662000137000D560AD /* Coordinator.swift in Sources */,
+				1935047220001B8800D560AD /* UINavigationController+Rx.swift in Sources */,
+				1935047620001C3900D560AD /* TeamListVC.swift in Sources */,
+				1935046D20001AC500D560AD /* TeamListScene.swift in Sources */,
 				1935046A200013F000D560AD /* ANColors.swift in Sources */,
 				19A1B3081FD3D1A10005A4A7 /* AppDelegate.swift in Sources */,
 				193504652000137000D560AD /* BaseController.swift in Sources */,
 				193504642000137000D560AD /* CoordinatorDelegate.swift in Sources */,
+				1935047420001BAE00D560AD /* TeamListVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

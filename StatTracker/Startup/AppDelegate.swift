@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Root controller
         window = UIWindow(frame: UIScreen.main.bounds)
         if let window = window {
+            let coordinator = Coordinator(window: window)
+            let teamListViewModel = TeamListVM(coordinator: coordinator)
+            let teamListScene = TeamListScene(teamListVM: teamListViewModel)
+            coordinator.transition(to: teamListScene, type: .root)
             window.makeKeyAndVisible()
         }
         
