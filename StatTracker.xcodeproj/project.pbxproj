@@ -17,6 +17,9 @@
 		1935047220001B8800D560AD /* UINavigationController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047120001B8800D560AD /* UINavigationController+Rx.swift */; };
 		1935047420001BAE00D560AD /* TeamListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047320001BAE00D560AD /* TeamListVM.swift */; };
 		1935047620001C3900D560AD /* TeamListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1935047520001C3900D560AD /* TeamListVC.swift */; };
+		199F5EB7200022D30096E123 /* StatTrackerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F5EB6200022D30096E123 /* StatTrackerAPI.swift */; };
+		199F5EB9200024AB0096E123 /* StatTrackerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F5EB8200024AB0096E123 /* StatTrackerProvider.swift */; };
+		199F5EBB200025190096E123 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199F5EBA200025190096E123 /* NetworkLoggerPlugin.swift */; };
 		19A1B3081FD3D1A10005A4A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A1B3071FD3D1A10005A4A7 /* AppDelegate.swift */; };
 		19A1B30F1FD3D1A10005A4A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19A1B30E1FD3D1A10005A4A7 /* Assets.xcassets */; };
 		19A1B3121FD3D1A10005A4A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A1B3101FD3D1A10005A4A7 /* LaunchScreen.storyboard */; };
@@ -34,6 +37,9 @@
 		1935047120001B8800D560AD /* UINavigationController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Rx.swift"; sourceTree = "<group>"; };
 		1935047320001BAE00D560AD /* TeamListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListVM.swift; sourceTree = "<group>"; };
 		1935047520001C3900D560AD /* TeamListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListVC.swift; sourceTree = "<group>"; };
+		199F5EB6200022D30096E123 /* StatTrackerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTrackerAPI.swift; sourceTree = "<group>"; };
+		199F5EB8200024AB0096E123 /* StatTrackerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTrackerProvider.swift; sourceTree = "<group>"; };
+		199F5EBA200025190096E123 /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		19A1B3041FD3D1A10005A4A7 /* StatTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A1B3071FD3D1A10005A4A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19A1B30E1FD3D1A10005A4A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 		19350457200012AE00D560AD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				199F5EBA200025190096E123 /* NetworkLoggerPlugin.swift */,
+				199F5EB6200022D30096E123 /* StatTrackerAPI.swift */,
+				199F5EB8200024AB0096E123 /* StatTrackerProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -332,15 +341,18 @@
 			files = (
 				1935046F20001B3A00D560AD /* BindableType.swift in Sources */,
 				193504672000137000D560AD /* BubbleTransition.swift in Sources */,
+				199F5EB9200024AB0096E123 /* StatTrackerProvider.swift in Sources */,
 				193504662000137000D560AD /* Coordinator.swift in Sources */,
 				1935047220001B8800D560AD /* UINavigationController+Rx.swift in Sources */,
 				1935047620001C3900D560AD /* TeamListVC.swift in Sources */,
+				199F5EB7200022D30096E123 /* StatTrackerAPI.swift in Sources */,
 				1935046D20001AC500D560AD /* TeamListScene.swift in Sources */,
 				1935046A200013F000D560AD /* ANColors.swift in Sources */,
 				19A1B3081FD3D1A10005A4A7 /* AppDelegate.swift in Sources */,
 				193504652000137000D560AD /* BaseController.swift in Sources */,
 				193504642000137000D560AD /* CoordinatorDelegate.swift in Sources */,
 				1935047420001BAE00D560AD /* TeamListVM.swift in Sources */,
+				199F5EBB200025190096E123 /* NetworkLoggerPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
