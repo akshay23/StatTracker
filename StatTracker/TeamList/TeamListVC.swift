@@ -62,8 +62,8 @@ extension TeamListVC: BindableType {
             
             // Fetch teams
             viewModel.teamList
-                .subscribe(onNext: { teamsJson in
-                    self.jsonTextView.text = teamsJson.rawString()
+                .subscribe(onNext: { teams in
+                    self.jsonTextView.text = teams.debugDescription
                 })
                 .disposed(by: rx.disposeBag)
     

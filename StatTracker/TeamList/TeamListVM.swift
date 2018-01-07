@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class TeamListVM {
     
-    let teamList: Observable<JSON>
+    let teamList: Observable<[Team]>
     
     private let disposeBag = DisposeBag()
     private let coordinator: CoordinatorDelegate

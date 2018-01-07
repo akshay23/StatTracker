@@ -26,13 +26,20 @@ class StatTrackerProvider {
             .asSingle()
     }
     
-    static func fetchTeams() -> Single<JSON> {
+    static func fetchTeams() -> Single<[Team]> {
         let endpoint = StatTrackerAPI.teams
         return request(withEndpoint: endpoint)
             .filterSuccessfulStatusCodes()
             .mapJSON()
             .flatMap { response in
-                return Single.just(JSON(response))
+                var teams: [Team] = []
+                let json = JSON(response)
+                for (_, singleJson):(String, JSON) in json {
+                    if let team = Team(jsonData: singleJson) {
+                        teams.append(team)
+                    }
+                }
+                return Single.just(teams)
             }
     }
 }
