@@ -10,16 +10,22 @@ import Foundation
 import Moya_SwiftyJSONMapper
 import SwiftyJSON
 
-final class Team: ALSwiftyJSONAble {
+struct Team: ALSwiftyJSONAble, Equatable {
     
+    let id: Int?
     let name: String?
     let location: String?
     let founded: Int?
     let conference: String?
     let division: String?
     let logoURL: String?
+
+    static func == (lhs: Team, rhs: Team) -> Bool {
+        return lhs.name == rhs.name && lhs.id == rhs.id
+    }
     
-    required init?(jsonData: JSON) {
+    init?(jsonData: JSON) {
+        self.id = jsonData["id"].int
         self.name = jsonData["name"].string
         self.location = jsonData["location"].string
         self.founded = jsonData["founded"].int
