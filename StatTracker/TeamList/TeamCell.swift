@@ -33,14 +33,15 @@ class TeamCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         
         thumbnailImageView.snp.makeConstraints() { make in
-            make.top.equalTo(contentView).offset(-10)
-            make.left.equalTo(contentView).offset(-10)
-            make.bottom.equalTo(contentView).offset(-10)
+            make.top.equalTo(contentView).offset(2)
+            make.left.equalTo(contentView).offset(40)
+            make.bottom.equalTo(contentView).offset(-2)
+            make.width.equalTo(200)
         }
         
         titleLabel.snp.makeConstraints() { make in
             make.top.equalTo(contentView).offset(10)
-            make.left.equalTo(thumbnailImageView).offset(100)
+            make.left.equalTo(thumbnailImageView).offset(50)
             make.bottom.equalTo(contentView).offset(-10)
         }
     }

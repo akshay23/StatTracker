@@ -27,6 +27,8 @@ class TeamListVC: UIViewController {
         // Table setup
         myTableView = UITableView()
         myTableView.register(TeamCell.self, forCellReuseIdentifier: "TeamCell")
+        myTableView.rowHeight = UITableViewAutomaticDimension
+        myTableView.estimatedRowHeight = 100
         myTableView.tableFooterView = UIView() //Prevent empty rows
         myTableView.dataSource = nil
         myTableView.delegate = nil
