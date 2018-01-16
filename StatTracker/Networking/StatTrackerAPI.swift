@@ -15,8 +15,8 @@ public enum StatTrackerAPI {
 
 extension StatTrackerAPI: TargetType {
     public var baseURL: URL {
-        // let base = "http://localhost:8080"
-        let base = "https://nameless-fortress-69681.herokuapp.com"
+         let base = "http://localhost:8080"
+        //let base = "https://nameless-fortress-69681.herokuapp.com"
         return URL(string: base)!
     }
     

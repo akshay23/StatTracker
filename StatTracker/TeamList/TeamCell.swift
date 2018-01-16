@@ -33,15 +33,16 @@ class TeamCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         
         thumbnailImageView.snp.makeConstraints() { make in
-            make.top.equalTo(contentView).offset(2)
-            make.left.equalTo(contentView).offset(40)
-            make.bottom.equalTo(contentView).offset(-2)
-            make.width.equalTo(200)
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(10)
+            make.width.equalTo(100)
         }
         
         titleLabel.snp.makeConstraints() { make in
             make.top.equalTo(contentView).offset(10)
-            make.left.equalTo(thumbnailImageView).offset(50)
+            make.left.equalTo(thumbnailImageView.snp.right).offset(40)
             make.bottom.equalTo(contentView).offset(-10)
         }
     }
@@ -58,7 +59,7 @@ class TeamCell: UITableViewCell {
             thumbnailImageView.kf.setImage(with: resource, options: [.transition(.fade(0.2))])
         }
         
-        titleLabel.text = team.name
+        titleLabel.text = "\(team.location ?? "") \(team.name ?? "")"
     }
     
     override func prepareForReuse() {

@@ -22,16 +22,14 @@ class TeamListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.ANGray()
-        
         // Table setup
         myTableView = UITableView()
         myTableView.register(TeamCell.self, forCellReuseIdentifier: "TeamCell")
-        myTableView.rowHeight = UITableViewAutomaticDimension
-        myTableView.estimatedRowHeight = 100
+        myTableView.rowHeight = 100
         myTableView.tableFooterView = UIView() //Prevent empty rows
         myTableView.dataSource = nil
-        myTableView.delegate = nil
+        myTableView.delegate = self
+        myTableView.backgroundColor = UIColor.ANLightGray()
         view.addSubview(myTableView)
         
         // Table constraints
@@ -41,32 +39,6 @@ class TeamListVC: UIViewController {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
-        
-//        scrollView = UIScrollView()
-//        scrollView.bounces = true
-//        scrollView.isScrollEnabled = true
-//        scrollView.backgroundColor = UIColor.ANDarkGray()
-//        view.addSubview(scrollView)
-//
-//        jsonTextView = UITextView()
-//        jsonTextView.backgroundColor = UIColor.ANLightTeal()
-//        jsonTextView.textColor = UIColor.ANBlack()
-//        jsonTextView.isEditable = false
-//        jsonTextView.isScrollEnabled = true
-//        scrollView.addSubview(jsonTextView)
-//        scrollView.contentSize = jsonTextView.bounds.size
-//
-//        scrollView.snp.makeConstraints() { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//            make.size.equalTo(CGSize(width: view.bounds.size.width, height: view.bounds.size.height - 100))
-//        }
-//
-//        jsonTextView.snp.makeConstraints() { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//            make.size.equalTo(CGSize(width: view.bounds.size.width, height: view.bounds.size.height - 100))
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,5 +57,21 @@ extension TeamListVC: BindableType {
                 }
                 .disposed(by: rx.disposeBag)
         }
+    }
+}
+
+extension TeamListVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let v = UIView()
+        v.backgroundColor = UIColor.clear
+        return v
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
 }
