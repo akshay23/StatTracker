@@ -13,13 +13,13 @@ import SwiftyJSON
 struct Player: ALSwiftyJSONAble, Equatable {
     
     let id: Int
-    let firstName: String?
-    let lastName: String?
-    let position: String?
-    let age: Int?
-    let jerseyNumber: Int?
-    let yearsPro: Int?
-    let teamID: Int?
+    let firstName: String
+    let lastName: String
+    let position: String
+    let age: Int
+    let jerseyNumber: Int
+    let yearsPro: Int
+    let teamID: Int
     
     static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.firstName == rhs.firstName
