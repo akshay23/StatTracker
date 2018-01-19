@@ -19,6 +19,8 @@ class TeamCell: UITableViewCell {
     private var thumbnailImageView = UIImageView()
     private var titleLabel = UILabel()
     
+    var localTeam: Team?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -52,14 +54,13 @@ class TeamCell: UITableViewCell {
     }
     
     func configureCell(usingTeam team: Team) {
-        if let logoURL = team.logoURL, logoURL.isValidUrl {
-            let url = URL(string: logoURL)!
+        localTeam = team
+        if team.logoURL.isValidUrl, let url = URL(string: team.logoURL) {
             let resource = ImageResource(downloadURL: url, cacheKey: team.name)
             thumbnailImageView.kf.indicatorType = .activity
             thumbnailImageView.kf.setImage(with: resource, options: [.transition(.fade(0.2))])
         }
-        
-        titleLabel.text = "\(team.location ?? "") \(team.name ?? "")"
+        titleLabel.text = "\(team.location) \(team.name)"
     }
     
     override func prepareForReuse() {

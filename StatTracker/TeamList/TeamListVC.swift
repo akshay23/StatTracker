@@ -8,6 +8,7 @@
 
 import AnimotoKit
 import NSObject_Rx
+import RxDataSources
 import RxSwift
 import SnapKit
 import UIKit
@@ -52,9 +53,18 @@ extension TeamListVC: BindableType {
         if let viewModel = viewModel {
             // Fetch teams and bind to table
             viewModel.teamList
-                .bind(to: myTableView.rx.items(cellIdentifier: "TeamCell", cellType: TeamCell.self)) {  row, element, cell in
+                .asDriver(onErrorJustReturn: [])
+                .drive(myTableView.rx.items(cellIdentifier: "TeamCell", cellType: TeamCell.self)) {  row, element, cell in
                     cell.configureCell(usingTeam: element)
                 }
+                .disposed(by: rx.disposeBag)
+            
+            myTableView.rx.itemSelected
+                .subscribe(onNext: { [weak self] indexPath in
+                    if let cell = self?.myTableView.cellForRow(at: indexPath) as? TeamCell, let t = cell.localTeam {
+                        viewModel.goToPlayersList(forTeam: t)
+                    }
+                })
                 .disposed(by: rx.disposeBag)
         }
     }

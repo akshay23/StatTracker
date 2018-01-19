@@ -42,6 +42,23 @@ class StatTrackerProvider {
                 return Single.just(teams)
             }
     }
+    
+    static func fetchPlayers(inTeam team: Team) -> Single<[Player]> {
+        let endpoint = StatTrackerAPI.players(teamId: team.id)
+        return request(withEndpoint: endpoint)
+            .filterSuccessfulStatusCodes()
+            .mapJSON()
+            .flatMap { response in
+                var players: [Player] = []
+                let json = JSON(response)
+                for (_, singleJson):(String, JSON) in json {
+                    if let player = Player(jsonData: singleJson) {
+                        players.append(player)
+                    }
+                }
+                return Single.just(players)
+            }
+    }
 }
 
 private extension StatTrackerProvider {
